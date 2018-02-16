@@ -44,7 +44,7 @@ app.get('/formulaire', (req, res) => {
  	console.log(JSON.stringify(resultat))
  // transfert du contenu vers la vue index.ejs (renders)
  // affiche le contenu de la BD
- res.render('index.ejs', {adresses: resultat})
+ res.render('formulaire.ejs', {adresses: resultat})
  }) ;
 
 })
@@ -60,8 +60,8 @@ app.post('/ajouter', (req, res) => {
 })
 
 app.get('/', (req, res) => {
- console.log('accueil')
- res.end('<h1>Accueil</h1>')
+ //res.end('<h1>Accueil</h1>')
+ res.render('index.ejs');
 })
 
 

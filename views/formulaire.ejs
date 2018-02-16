@@ -2,7 +2,7 @@
 <html lang="fr">
 	<%- include('composants/head') %>
 <body>
- Node.js, Express et MongoDB.
+ <h2>Node.js, Express et MongoDB.</h2>
  <button id='update'>Mise à jour téléphone</button>
  <form action="/ajouter" method="POST">
  <input type="text" placeholder="Nom" name="nom">
@@ -11,24 +11,5 @@
   <input type="text" placeholder="Courriel" name="courriel">
  <button type="submit">Submit</button>
  </form>
-
- <table class="tableau">
- <% let noLigne = 0 %>
-	<% for(elm of adresses) {%>
-	 	<% if (noLigne==0) { %>
-		 <tr>
-		 	<% noLigne++ %>
-		 	<% for (p in elm) {%>
-		 <td><%= p %></td>
-		 <% } %>
-		 </tr>
-		 <% } %>
-		 <tr>
-		 	<% for (p in elm) {%>
-		 <td><%= elm[p] %></td>
-		 <% } %>
-		 </tr>
-	 <% } %>
- </table>
 </body>
 </html>
