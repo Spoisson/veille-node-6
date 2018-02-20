@@ -70,18 +70,19 @@ app.get('/', (req, res) => {
 
 */
 
-
 app.get('/trier/:cle/:ordre', (req, res) => {
 
 	let cle = req.params.cle
-	console.log(cle);
 	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
- 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
+ 	let cursor = db.collection('adresse').find().sort(cle, ordre).toArray(function(err, resultat){
  	
- 		//ordre = ______________________________
- 		res.render('adresses.ejs', {adresses: resultat})
- 		//res.render('adresses.ejs', {adresses: resultat, ______, _________ })
+ 		ordre = (ordre == 1 ? 'desc' : 'asc')
+ 		//objOrdre[cle] = ordre;
+ 		res.render('adresses.ejs', {adresses: resultat, cle, ordre})
+
  	})
+
+ 	
 })
 
 

@@ -1,9 +1,26 @@
+<%
+
+		objOrdre[cle] = ordre;
+
+		let objOrdre = {
+
+			"_id" : "desc",
+			"nom" : "desc",
+			"prenom" : "asc",
+			"telephone" : "asc"
+
+		}
+
+%>
+
+
+
 <table class="tableau">
  <tr>
- <th><a href='/trier/id/asc'>ID</a></th>
- <th><a href='/trier/nom/asc'>Nom</a></th> 
- <th><a href='/trier/prenom/asc'>Prenom</a></th>
- <th><a href='/trier/telephone/asc'>Telephone</a></th>
+ <th><a href='/trier/id/<%= objOrdre._id %>'>ID</a></th>
+ <th><a href='/trier/nom/<%= objOrdre.nom %>'>Nom</a></th> 
+ <th><a href='/trier/prenom/<%= objOrdre.prenom %>'>Prenom</a></th>
+ <th><a href='/trier/telephone/<%= objOrdre.telephone %>'>Telephone</a></th>
  <th>Ajouter</th> 
  </tr>
  <% adresses.forEach(elm => {%>
