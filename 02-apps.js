@@ -137,15 +137,15 @@ app.post('/modifier', (req, res) => {
 })
 
 
-app.get('list#', (req, res) => {
+app.get('/detruire/:id', (req, res) => {
+ var id = req.params.id
+ const ObjectID = require('mongodb').ObjectID;
+ console.log(id)
+ db.collection('adresse')
+ .findOneAndDelete({"_id": ObjectID(req.params.id)}, (err, resultat) => {
 
-	let cle = req.params.cle
-	console.log(cle);
-	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
- 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
- 	
- 		//ordre = ______________________________
- 		res.render('adresses.ejs', {adresses: resultat})
- 		//res.render('adresses.ejs', {adresses: resultat, ______, _________ })
- 	})
+if (err) return console.log(err)
+ res.redirect('/list')  // redirige vers la route qui affiche la collection
+ })
+
 })
