@@ -50,15 +50,6 @@ app.get('/list', (req, res) => {
 })
 
 
-app.post('/ajouter', (req, res) => {
- db.collection('adresse').save(req.body, (err, result) => {
- if (err) return console.log(err)
- console.log('sauvegarder dans la BD')
- res.redirect('/')
- });
-
-})
-
 app.get('/', (req, res) => {
  //res.end('<h1>Accueil</h1>')
  res.render('accueil.ejs');
@@ -78,3 +69,68 @@ app.get('/', (req, res) => {
 })
 
 */
+
+
+app.get('/trier/:cle/:ordre', (req, res) => {
+
+	let cle = req.params.cle
+	console.log(cle);
+	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+ 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
+ 	
+ 		//ordre = ______________________________
+ 		res.render('adresses.ejs', {adresses: resultat})
+ 		//res.render('adresses.ejs', {adresses: resultat, ______, _________ })
+ 	})
+})
+
+
+
+app.post('/ajouter', (req, res) => {
+ db.collection('adresse').save(req.body, (err, result) => {
+ if (err) return console.log(err)
+ console.log('sauvegarder dans la BD')
+ res.redirect('/')
+ });
+
+})
+
+
+
+app.post('/modifier', (req, res) => {
+
+	console.log('req.body' + req.body['_id'])
+
+	 if (req.body['_id'] != '')
+	 { 
+		console.log('sauvegarde') 
+		var oModif = {
+			 "_id": ObjectID(req.body['_id']), 
+			 nom: req.body.nom,
+			 prenom:req.body.prenom, 
+			 telephone:req.body.telephone
+	 	}
+
+		var util = require("util");
+		console.log('util = ' + util.inspect(oModif));
+
+	 }
+	 else
+	 {
+		 console.log('insert')
+		 console.log(req.body)
+		 var oModif = {
+			 nom: req.body.nom,
+			 prenom:req.body.prenom, 
+			 telephone:req.body.telephone
+		 }
+	 }
+
+		 db.collection('adresse').save(oModif, (err, result) => {
+		 if (err) return console.log(err)
+		 console.log('sauvegarder dans la BD')
+		 res.redirect('/list')
+
+ 		})
+
+})
