@@ -100,6 +100,7 @@ app.post('/ajouter', (req, res) => {
 app.post('/modifier', (req, res) => {
 
 	console.log('req.body' + req.body['_id'])
+	const ObjectID = require('mongodb').ObjectID;
 
 	 if (req.body['_id'] != '')
 	 { 
@@ -133,4 +134,18 @@ app.post('/modifier', (req, res) => {
 
  		})
 
+})
+
+
+app.get('list#', (req, res) => {
+
+	let cle = req.params.cle
+	console.log(cle);
+	let ordre = (req.params.ordre == 'asc' ? 1 : -1)
+ 	let cursor = db.collection('adresse').find().sort(cle,ordre).toArray(function(err, resultat){
+ 	
+ 		//ordre = ______________________________
+ 		res.render('adresses.ejs', {adresses: resultat})
+ 		//res.render('adresses.ejs', {adresses: resultat, ______, _________ })
+ 	})
 })
