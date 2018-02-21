@@ -55,7 +55,7 @@ h2 {
 
 input {
 
-	background-color: #effcff;
+	background-color: @blanc;
 	padding: 2px;
 
 }
@@ -79,6 +79,7 @@ div {
 form {
 
 	margin-left: 20px;
+	padding-bottom: 30px;
 
 }
 
@@ -86,9 +87,20 @@ tr:first-child {
 
 	padding: 20px;
 	border: 1px solid @noir;
-	background-color: @couleurEnteteColonne;
+	background-color: @couleurFooter;
 	font-weight: bold;
 	text-transform: uppercase;
+
+	th{
+
+		border: 1px solid @noir;
+
+		a{
+
+			text-decoration: none;
+		}
+
+	}
 
 }
 
@@ -97,12 +109,18 @@ td {
 	font-size: 15px;
 	padding: 10px;
 	border: 1px solid @noir;
+	background-color: @blanc;
+
+	a{
+
+		text-decoration: none;
+
+	}
 }
 
 table {
 
 	margin: 0 auto;
-	padding-top: 30px;
 	border-collapse: collapse;
 
 }
