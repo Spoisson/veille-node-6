@@ -17,27 +17,6 @@
 
 /* base: AA8339 et D4A36A*/
 
-h1 {
-
-	color: blue;
-	font-size: 45px;
-
-}
-
-body {
-
-	text-align: center;
-	//margin-top: 5%;
-	//margin-left: 2%;
-
-}
-
-form {
-
-	margin-top: 2%;
-
-}
-
 a {
 
 	padding: 10px;
@@ -45,96 +24,91 @@ a {
 
 }
 
+body{
 
-h2 {
+	background-color: @arrierePlan;
 
-	margin-top: 30px;
-	font-size: 40px;
+		text-align: center;
 
-}
+	form {
 
-input {
+		margin-top: 2%;
+		margin-left: 20px;
+		padding-bottom: 30px;
 
-	background-color: @blanc;
-	padding: 2px;
+		input {
 
-}
+			background-color: @blanc;
+			padding: 2px;
 
-button[type=submit]{
+		}
 
-	font-weight: bold;
-	margin-left: 1%;
-	padding: 10px;
-	/*font-size: 50px;*/
+		input[type=submit]{
 
+			font-weight: bold;
+			margin-left: 1%;
+			padding: 10px;
+			font-size: 1em;
 
-}
-
-div {
-
-	margin-top: 10px;
-
-}
-
-form {
-
-	margin-left: 20px;
-	padding-bottom: 30px;
-
-}
-
-tr:first-child {
-
-	padding: 20px;
-	border: 1px solid @noir;
-	background-color: @couleurFooter;
-	font-weight: bold;
-	text-transform: uppercase;
-
-	th{
-
-		border: 1px solid @noir;
-
-		a{
-
-			text-decoration: none;
 		}
 
 	}
 
-}
+	table {
 
-td {
+		tbody{
 
-	font-size: 15px;
-	padding: 10px;
-	border: 1px solid @noir;
-	background-color: @blanc;
+			tr:first-child {
 
-	a{
+				padding: 20px;
+				border: 1px solid @noir;
+				background-color: @couleurFooter;
+				font-weight: bold;
+				text-transform: uppercase;
 
-		text-decoration: none;
+				th{
+
+					padding: 1%;
+					border: 1px solid @noir;
+
+					a{
+
+						text-decoration: none;
+					}
+
+				}
+
+			}
+
+			tr{
+
+				td {
+
+					font-size: 15px;
+					padding: 10px;
+					border: 1px solid @noir;
+					background-color: @blanc;
+
+					a{
+
+						text-decoration: none;
+
+					}
+				}
+
+			}
+
+
+		}
 
 	}
-}
 
-table {
+	table {
 
-	margin: 0 auto;
-	border-collapse: collapse;
+		margin: 0 auto;
+		border-collapse: collapse;
 
-}
-
-.entete section {
-
-	margin-top: 2%;
-	margin-bottom: 2%;
-
-}
-
-body{
-
-	background-color: @arrierePlan;
+	}
 
 	h1{
 
