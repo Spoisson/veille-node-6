@@ -5,7 +5,7 @@
 @couleurEnteteColonne: #e2f3e8;
 @couleurFooter: #d0b0a5;
 @couleurFooter2: #fbddd3;
-
+@arrierePlan: #fdeae4;
 
 
 /* Reset... */
@@ -116,6 +116,14 @@ table {
 
 body{
 
+	background-color: @arrierePlan;
+
+	h1{
+
+		color: @noir;
+
+	}
+
 	header.entete {
 
 		nav{
@@ -128,7 +136,7 @@ body{
 
 				&:hover{
 
-						background-color: @couleurEnteteColonne;
+						background-color: @couleurFooter;
 
 				}
 
@@ -149,14 +157,14 @@ body{
 
 			i{
 
-				font-size: 4em;
+				font-size: 3em;
 
 			}
 
 			h1{
 
 					color: @noir;
-					font-size: 1.5em;
+					font-size: 1em;
 
 			}
 
@@ -186,13 +194,14 @@ body{
 
 					text-decoration: none;
 					list-style: none;
-					background-color: @couleurFooter2;
+					//background-color: @couleurFooter2;
 					margin-top: 1%;
 					margin-bottom: 1%;
 
 					a{
 
 						text-decoration: none;
+						//color: @couleurFooter
 
 					}
 
