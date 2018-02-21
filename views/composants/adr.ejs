@@ -4,7 +4,9 @@
 			"_id" : "desc",
 			"nom" : "desc",
 			"prenom" : "asc",
-			"telephone" : "asc"
+			"telephone" : "asc",
+			"courriel" : "asc"
+
 
 		}
 
@@ -25,6 +27,7 @@
  <th><a href='/trier/nom/<%= objOrdre.nom %>'>Nom</a></th> 
  <th><a href='/trier/prenom/<%= objOrdre.prenom %>'>Prenom</a></th>
  <th><a href='/trier/telephone/<%= objOrdre.telephone %>'>Telephone</a></th>
+  <th><a href='/trier/courriel/<%= objOrdre.courriel %>'>Courriel</a></th>
  
  </tr>
  <% adresses.forEach(elm => {%>
@@ -33,6 +36,7 @@
  <td contenteditable='true'><%= elm.nom %></td>
  <td contenteditable='true'><%= elm.prenom %></td>
  <td contenteditable='true'><%= elm.telephone %></td>
+ <td contenteditable='true'><%= elm.courriel %></td>
  <td><a href="/detruire/<%= elm._id %>">Delete</a></td>
  <td><a class='sauver' href="#">Sauver</a></td>
  </tr>

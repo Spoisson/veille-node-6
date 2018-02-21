@@ -9,20 +9,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); // générateur de template
 
 
-
-app.get('/membres', (req, res) => {
- 
- let cursor = db.collection('adresse')
-                .find()
-                .toArray(function(err, resultat){
- if (err) return console.log(err)
- 	console.log(JSON.stringify(resultat))
- // transfert du contenu vers la vue index.ejs (renders)
- // affiche le contenu de la BD
- res.render('gabarit.ejs', {adresses: resultat})
- }) ;
-
-})
 ////////////////////////////////////////// Connexion à mongoDB et au serveur Node.js
 let db // variable qui contiendra le lien sur la BD
 
@@ -34,6 +20,15 @@ MongoClient.connect('mongodb://127.0.0.1:27017/carnet_adresse', (err, database) 
  console.log('connexion à la BD et on écoute sur le port 8081')
  })
 })
+
+
+/*
+
+	Cette page sera accéder lorsque l'utilisateur appuyera sur l'onglet "Adresses" se trouvant dans l'entête de la page.
+	Elle se compose de la liste des membres présents dans la base de données
+	
+*/
+
 
 app.get('/list', (req, res) => {
  
@@ -49,6 +44,12 @@ app.get('/list', (req, res) => {
 
 })
 
+/*
+
+	La page d'accueil est à la racine de la connexion au local host et donnera accès aux différentes pages.
+	
+*/
+
 
 app.get('/', (req, res) => {
  //res.end('<h1>Accueil</h1>')
@@ -57,18 +58,12 @@ app.get('/', (req, res) => {
 
 
 /*
-app.get('/', (req, res) => {
- 
- let cursor = db.collection('adresse')
-                .find().toArray(function(err, resultat){
- if (err) return console.log(err)
- // transfert du contenu vers la vue index.ejs (renders)
- // affiche le contenu de la BD
- res.render('index.ejs', {adresse: resultat})
- }) 
-})
+
+	Cette fonction permet de trier la liste en fonction de la clé et de l'ordre envoyé dans le routeur. Elle filtrera les données de la base pour l'organiser dans un nouveau
+	tableau qui sera créé dynamiquement. L'ordre s'inversera à l'aide d'un objet présent au début de la page adr.ejs.
 
 */
+
 
 app.get('/trier/:cle/:ordre', (req, res) => {
 
@@ -85,16 +80,6 @@ app.get('/trier/:cle/:ordre', (req, res) => {
  	
 })
 
-
-
-app.post('/ajouter', (req, res) => {
- db.collection('adresse').save(req.body, (err, result) => {
- if (err) return console.log(err)
- console.log('sauvegarder dans la BD')
- res.redirect('/')
- });
-
-})
 
 
 /*
