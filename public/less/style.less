@@ -4,6 +4,8 @@
 @blanc: #ffffff;
 @couleurEnteteColonne: #e2f3e8;
 @couleurFooter: #d0b0a5;
+@couleurFooter2: #fbddd3;
+
 
 
 /* Reset... */
@@ -165,8 +167,35 @@ body{
 
 	footer {
 
+			height: 10vh;	
 			margin-top: 10%;
 			background-color: @couleurFooter;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+
+			ul{
+
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				background-color: @couleurFooter2;
+
+				li{
+
+					text-decoration: none;
+					list-style: none;
+
+					a{
+
+						text-decoration: none;
+
+					}
+
+				}
+
+
+			}
 
 	}
 
